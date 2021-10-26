@@ -1,0 +1,7 @@
+package az.demo.statemachine.controller;
+
+import org.springframework.stereotype.Controller;
+
+@Controller
+public class CustomerController {
+}
