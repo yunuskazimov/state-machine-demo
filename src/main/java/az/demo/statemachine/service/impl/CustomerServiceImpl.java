@@ -21,8 +21,9 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public List<CustomerEntity> getCustomer(Long id) {
+    public List<CustomerEntity> getCustomers() {
         List<CustomerEntity> entityList = customerRepository.findAll();
         return entityList;
     }
+
 }

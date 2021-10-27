@@ -11,17 +11,17 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class AccountServiceImpl implements AccountService {
+
     private final AccountRepository accountRepository;
 
-
     @Override
-    public AccountEntity createCustomer(AccountEntity entity) {
+    public AccountEntity createAccount(AccountEntity entity) {
         accountRepository.save(entity);
         return entity;
     }
 
     @Override
-    public List<AccountEntity> getCustomer(Long id) {
+    public List<AccountEntity> getAccounts() {
         List<AccountEntity> entityList = accountRepository.findAll();
         return entityList;
     }
