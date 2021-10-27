@@ -15,6 +15,7 @@ import org.springframework.stereotype.Component;
 
 @Slf4j
 @RequiredArgsConstructor
+
 @Component
 public class OrderStateMachineBuilder implements StateMachineBuilder<AccountState, AccountEvent> {
 
@@ -25,12 +26,12 @@ public class OrderStateMachineBuilder implements StateMachineBuilder<AccountStat
     private final OrderRepository orderRepository;
 
     @Override
-    public void sendEvent(Long idOrder, AccountEvent AccountEvent) {
-        log.info("SendEvent {}, {}", idOrder, AccountEvent);
+    public void sendEvent(Long idOrder, AccountEvent accountEvent) {
+        log.info("SendEvent {}, {}", idOrder, accountEvent);
         StateMachine<AccountState, AccountEvent> sm = orderRepository.findById(idOrder).map(
                 order -> build(order.getId(),stateMachineFactory,orderStateChangeInterceptor,order.getAccountState())
         ).get();
-        sm.sendEvent(createMessage(AccountEvent, "HEADER_ORDER_ID", idOrder));
+        sm.sendEvent(createMessage(accountEvent, "HEADER_ORDER_ID", idOrder));
     }
 
     @Override

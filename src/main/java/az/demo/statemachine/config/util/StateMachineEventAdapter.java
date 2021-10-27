@@ -1,8 +1,10 @@
 package az.demo.statemachine.config.util;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.messaging.Message;
 import org.springframework.messaging.support.MessageBuilder;
 import org.springframework.statemachine.StateContext;
+
 
 public interface StateMachineEventAdapter<S, E> {
 

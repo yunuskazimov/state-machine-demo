@@ -5,6 +5,7 @@ import org.springframework.statemachine.config.StateMachineFactory;
 import org.springframework.statemachine.support.DefaultStateMachineContext;
 import org.springframework.statemachine.support.StateMachineInterceptorAdapter;
 
+
 public interface StateMachineBuilder<S, E> extends StateMachineEventAdapter<S, E> {
 
     void sendEvent(Long id, E event);
@@ -17,9 +18,10 @@ public interface StateMachineBuilder<S, E> extends StateMachineEventAdapter<S, E
             StateMachineInterceptorAdapter<S, E> interceptorAdapter,
             S currentStatus
     ) {
+
         StateMachine<S, E> sm =
                 stateMachineFactory.getStateMachine(Long.toString(id));
-
+        System.out.println("id" +id);
         sm.stop();
         sm.getStateMachineAccessor()
                 .doWithAllRegions(sma -> {

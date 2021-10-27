@@ -11,7 +11,6 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQL10Dialect
 
-
 server:
   port: 8092
 
@@ -21,3 +20,4 @@ management:
   endpoint:
     health:
       enabled: true
+debug: true

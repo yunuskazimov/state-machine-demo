@@ -20,10 +20,10 @@ public class OrderStateChangeInterceptor extends StateMachineInterceptorAdapter<
 
     private final OrderRepository orderRepository;
 
-    //@Override
+    @Override
     public void preStateChange(State<AccountState, AccountEvent> state, Message<AccountEvent> message,
                                Transition<AccountState, AccountEvent> transition,
-                               StateMachine<AccountState, AccountEvent> stateMachine) {
+                               StateMachine<AccountState, AccountEvent> stateMachine1,StateMachine<AccountState, AccountEvent> stateMachine2) {
 
         Optional.ofNullable(message)
                 .flatMap(
@@ -34,7 +34,7 @@ public class OrderStateChangeInterceptor extends StateMachineInterceptorAdapter<
                 .flatMap(orderRepository::findById)
                 .ifPresent(
                         order -> {
-                            order.setAccountState(state.getId());
+                            order.setAccountState(AccountState.ACCOUNT_OPENING);
                             orderRepository.save(order);
                         });
     }
