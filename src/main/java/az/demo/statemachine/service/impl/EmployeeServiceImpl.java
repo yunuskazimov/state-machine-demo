@@ -14,14 +14,15 @@ import java.util.List;
 public class EmployeeServiceImpl implements EmployeeService {
     private final EmployeeRepository employeeRepository;
 
+
     @Override
-    public EmployeeEntity createCustomer(EmployeeEntity entity) {
+    public EmployeeEntity createEmployee(EmployeeEntity entity) {
         employeeRepository.save(entity);
         return entity;
     }
 
     @Override
-    public List<EmployeeEntity> getCustomer(Long id) {
+    public List<EmployeeEntity> getEmployees() {
         List<EmployeeEntity> entityList = employeeRepository.findAll();
         return entityList;
     }
