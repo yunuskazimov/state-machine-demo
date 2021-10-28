@@ -2,6 +2,8 @@ package az.demo.statemachine;
 
 import az.demo.statemachine.enums.AccountEvent;
 import az.demo.statemachine.enums.AccountState;
+import az.demo.statemachine.model.Order;
+import az.demo.statemachine.service.impl.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -15,12 +17,12 @@ public class StateMachineApplication  implements CommandLineRunner {
         SpringApplication.run(StateMachineApplication.class, args);
     }
     @Autowired
-    private StateMachine<AccountState, AccountEvent> stateMachine;
+    private OrderService orderService;
 
     @Override
     public void run(String... args) throws Exception {
 
-        stateMachine.sendEvent(AccountEvent.CREATE_CUSTOMER);
+        orderService.start(1l);
 
 
     }

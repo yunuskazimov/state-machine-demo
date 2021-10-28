@@ -23,7 +23,7 @@ import org.springframework.statemachine.state.State;
 import java.util.EnumSet;
 
 
-@EnableStateMachine
+
 @RequiredArgsConstructor
 @EnableStateMachineFactory
 @Configuration

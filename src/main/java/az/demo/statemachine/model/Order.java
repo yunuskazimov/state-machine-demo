@@ -11,7 +11,7 @@ import javax.persistence.*;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "account")
+@Table(name = "orders")
 public class Order {
 
     @Id
@@ -20,6 +20,7 @@ public class Order {
     private String pin;
     private String customer;
     private String account;
+    @Enumerated(EnumType.STRING)
     private AccountState accountState;
 
 }
